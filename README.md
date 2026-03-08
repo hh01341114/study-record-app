@@ -17,7 +17,6 @@
 | バックエンド | Java 21 / Spring Boot 3.5.11 |
 | フロントエンド | Thymeleaf |
 | データベース | PostgreSQL |
-| DBマイグレーション | Flyway |
 | ORM | Spring Data JPA |
 | セキュリティ | Spring Security |
 | ビルドツール | Gradle |
