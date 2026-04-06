@@ -24,6 +24,7 @@ public class UserMapper {
 		dto.setEmail(entity.getEmail());
 		dto.setShortGoal(entity.getShortGoal());
 		dto.setLongGoal(entity.getLongGoal());
+		dto.setCreateDateTime(entity.getCreateDateTime());		
 		
 		return dto;
 	}
@@ -41,7 +42,6 @@ public class UserMapper {
 		entity.setPassword(requestDto.getPassword());
 		entity.setShortGoal(requestDto.getShortGoal());
 		entity.setLongGoal(requestDto.getLongGoal());
-		entity.setCreateDateTime(requestDto.getCreateDateTime());
 		
 		return entity;
 	}
