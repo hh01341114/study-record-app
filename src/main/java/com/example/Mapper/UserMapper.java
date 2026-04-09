@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import com.example.Dto.UserRequestDto;
 import com.example.Dto.UserResponsDto;
+import com.example.Dto.UserUpdateRequestDto;
 import com.example.Entity.UsersEntity;
 
 /**
@@ -45,4 +46,20 @@ public class UserMapper {
 		
 		return entity;
 	}
+	
+	/**
+	 * 更新情報をEntityにマッピング
+	 * @param updateRequestDto
+	 * @param entity
+	 */
+	public void updateToEntity(UserUpdateRequestDto updateRequestDto, UsersEntity entity) {
+		//DTOからEntityに変換
+		entity.setName(updateRequestDto.getName());
+		entity.setEmail(updateRequestDto.getEmail());
+		entity.setPassword(updateRequestDto.getPassword());
+		entity.setShortGoal(updateRequestDto.getShortGoal());
+		entity.setLongGoal(updateRequestDto.getLongGoal());
+	}
+	
+	
 }
