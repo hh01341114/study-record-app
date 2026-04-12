@@ -41,7 +41,7 @@ public class UserManegementServiceImple implements UserManegementService {
 				.orElseThrow(() -> new RuntimeException("ユーザーが見つかりません: id=" + id));
 		return userMapper.toResponsDto(entity);
 	}
-
+	
 	/**
 	 * ユーザー作成時の作成時間登録とパスワードのハッシュ化
 	 * 
@@ -64,8 +64,9 @@ public class UserManegementServiceImple implements UserManegementService {
 	 * ユーザー情報更新
 	 * @param id
 	 * @param updateRequestDto
-	 * @return ResponsDTOで返す
+	 * @return ResponsDTOで返す	
 	 */
+	@Override
 	public UserResponsDto updateUser(Integer id, UserUpdateRequestDto updateRequestDto) {
 		UsersEntity entity = userManagementRepository.findById(id)
 				.orElseThrow(() -> new RuntimeException("ユーザーが見つかりません: id=" + id));
@@ -81,6 +82,7 @@ public class UserManegementServiceImple implements UserManegementService {
 	/**
 	 *ユーザーの削除
 	 */
+	@Override
 	public void deleteUser(Integer id) {
 		UsersEntity entity = userManagementRepository.findById(id)
 				.orElseThrow(() -> new RuntimeException("ユーザーが見つかりません: id=" + id));
