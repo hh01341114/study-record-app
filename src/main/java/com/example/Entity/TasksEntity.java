@@ -3,6 +3,9 @@ package com.example.Entity;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import com.example.Enum.PriorityEnum;
+import com.example.Enum.StatusEnum;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -53,13 +56,13 @@ public class TasksEntity {
 	 * 重要度
 	 */
 	@Column(name = "priority", nullable = false, length = 20)
-	private String priority;
+	private PriorityEnum priority;
 	
 	/**
 	 * タスク状況
 	 */
 	@Column(name = "status", nullable = false, length = 20)
-	private String status;
+	private StatusEnum status;
 	
 	/**
 	 * タスク作成時間
