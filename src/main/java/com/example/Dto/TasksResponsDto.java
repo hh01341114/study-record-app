@@ -1,18 +1,16 @@
 package com.example.Dto;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import com.example.Enum.PriorityEnum;
 import com.example.Enum.StatusEnum;
-import com.sun.istack.NotNull;
 
 import lombok.Data;
 
-/**
- * タスク作成用のDTO
- */
 @Data
-public class TasksCreateRequestDto {
+public class TasksResponsDto {
+
 	/**
 	 * タスクid
 	 */
@@ -21,7 +19,6 @@ public class TasksCreateRequestDto {
 	/**
 	 * タスクのタイトル
 	 */
-	@NotNull
 	private String title;
 
 	/**
@@ -37,13 +34,15 @@ public class TasksCreateRequestDto {
 	/**
 	 * 重要度
 	 */
-	@NotNull
 	private PriorityEnum priority;
 
 	/**
 	 * タスク状況
 	 */
-	@NotNull
 	private StatusEnum status;
 
+	/**
+	 * 作成時間
+	 */
+	private LocalDateTime createdAt;
 }

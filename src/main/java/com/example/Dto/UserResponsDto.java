@@ -13,7 +13,7 @@ public class UserResponsDto {
 	/**
 	 * ユーザーID
 	 */
-	private Integer id;
+	private int id;
 
 	/**
 	 * ユーザー名

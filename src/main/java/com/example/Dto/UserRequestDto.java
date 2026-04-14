@@ -12,7 +12,7 @@ public class UserRequestDto {
 	/**
 	 * ユーザーID
 	 */
-	private Integer id;
+	private int id;
 
 	/**
 	 * ユーザー名
