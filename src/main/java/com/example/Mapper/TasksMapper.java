@@ -18,14 +18,14 @@ public class TasksMapper {
 	 * @param tasksCreateRequestDto
 	 * @return
 	 */
-	public TasksResponsDto toTasksDto(TasksCreateRequestDto tasksCreateRequestDto) {
+	public TasksResponsDto toTasksDto(TasksEntity tasksEntity) {
 		TasksResponsDto tasksResponsDto = new TasksResponsDto();
 		
-		tasksResponsDto.setTitle(tasksCreateRequestDto.getTitle());
-		tasksResponsDto.setDetail(tasksCreateRequestDto.getDetail());
-		tasksResponsDto.setDueDate(tasksCreateRequestDto.getDueDate());
-		tasksResponsDto.setPriority(tasksCreateRequestDto.getPriority());
-		tasksResponsDto.setStatus(tasksCreateRequestDto.getStatus());
+		tasksResponsDto.setTitle(tasksEntity.getTitle());
+		tasksResponsDto.setDetail(tasksEntity.getDetail());
+		tasksResponsDto.setDueDate(tasksEntity.getDueDate());
+		tasksResponsDto.setPriority(tasksEntity.getPriority());
+		tasksResponsDto.setStatus(tasksEntity.getStatus());
 		
 		return tasksResponsDto;
 	}

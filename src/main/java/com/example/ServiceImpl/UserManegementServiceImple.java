@@ -12,6 +12,7 @@ import com.example.Entity.UsersEntity;
 import com.example.Mapper.UserMapper;
 import com.example.Repository.UserManagementRepository;
 import com.example.Service.UserManegementService;
+import com.example.exception.ResourceNotFoundException;
 
 /**
  * ユーザー管理の処理実装
@@ -37,8 +38,9 @@ public class UserManegementServiceImple implements UserManegementService {
 	 */
 	@Override
 	public UserResponsDto findByUser(Integer id) {
+		//ユーザーが存在しない場合
 		UsersEntity entity = userManagementRepository.findById(id)
-				.orElseThrow(() -> new RuntimeException("ユーザーが見つかりません: id=" + id));
+				.orElseThrow(() -> new ResourceNotFoundException("ユーザーが見つかりません: id=" + id));
 		return userMapper.toResponsDto(entity);
 	}
 	
@@ -68,8 +70,9 @@ public class UserManegementServiceImple implements UserManegementService {
 	 */
 	@Override
 	public UserResponsDto updateUser(Integer id, UserUpdateRequestDto updateRequestDto) {
+		//ユーザーが存在しない場合
 		UsersEntity entity = userManagementRepository.findById(id)
-				.orElseThrow(() -> new RuntimeException("ユーザーが見つかりません: id=" + id));
+				.orElseThrow(() -> new ResourceNotFoundException("ユーザーが見つかりません: id=" + id));
 		
 		//更新処理
 		userMapper.updateToEntity(updateRequestDto, entity);
@@ -84,8 +87,9 @@ public class UserManegementServiceImple implements UserManegementService {
 	 */
 	@Override
 	public void deleteUser(Integer id) {
+		//ユーザーが存在しない場合
 		UsersEntity entity = userManagementRepository.findById(id)
-				.orElseThrow(() -> new RuntimeException("ユーザーが見つかりません: id=" + id));
+				.orElseThrow(() -> new ResourceNotFoundException("ユーザーが見つかりません: id=" + id));
 		
 		//データ保存
 		userManagementRepository.delete(entity);
