@@ -1,7 +1,7 @@
 package com.example.ServiceImpl;
 
-import java.util.List;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.example.Dto.TasksCreateRequestDto;
@@ -64,17 +64,16 @@ public class TasksServiceImpl implements TasksService {
 	}
 	
 	/**
-	 * タスク一覧取得
+	 * タスク一覧取得(ページング)
 	 * @param user
 	 * @return task一覧
 	 */
-	List<TasksResponsDto> getTaskList(UsersEntity user) {
+	@Override
+	public Page<TasksResponsDto> getTaskList(UsersEntity user, Pageable pageable) {
 		//ログインユーザー紐付け
-		List<TasksEntity> tasks = tasksRepository.findByUser(user);
+		Page<TasksEntity> tasks = tasksRepository.findByUser(user, pageable);
 		
-		return tasks.stream()
-				.map(tasksMapper::toTasksDto)
-				.toList();
+		return tasks.map(tasksMapper::toTasksDto);
 	}
 
 	/**
@@ -97,6 +96,9 @@ public class TasksServiceImpl implements TasksService {
 		return tasksMapper.toTasksDto(tasksEntity);
 	}
 
+	/**
+	 *タスク削除
+	 */
 	@Transactional
 	@Override
 	public void deleteTask(UsersEntity user, Integer taskId) {

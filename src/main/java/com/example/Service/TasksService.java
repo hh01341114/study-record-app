@@ -1,5 +1,8 @@
 package com.example.Service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.example.Dto.TasksCreateRequestDto;
 import com.example.Dto.TasksResponsDto;
 import com.example.Dto.TasksUpdateRequestDto;
@@ -26,6 +29,13 @@ public interface TasksService {
 	 * @return
 	 */
 	TasksResponsDto getTaskDetail(UsersEntity user, Integer taskId);
+	
+	/**
+	 * タスクリスト取得
+	 * @param user
+	 * @return
+	 */
+	Page<TasksResponsDto> getTaskList(UsersEntity user, Pageable pageable);
 
 	/**
 	 * タスク更新
