@@ -1,7 +1,7 @@
 package com.example.exception;
 
 /**
- * 
+ * 403エラー
  */
 public class ForbiddenException extends RuntimeException {
 	
